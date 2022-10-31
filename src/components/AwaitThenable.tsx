@@ -1,24 +1,15 @@
 /* eslint-enable @typescript-eslint/await-thenable */
 
-import { useState } from "react";
-
 interface AwaitThenableProps {
   action: () => void;
   children: React.ReactNode;
 }
 
 export function AwaitThenable({ action, children }: AwaitThenableProps) {
-  const [running, setRunning] = useState(false);
-
-  const onClick = async () => {
-    setRunning(true);
-    await action();
-    setRunning(false);
+  const onClick = () => {
+    action();
+    // TODO add yellow lines (exeten settings)
   };
 
-  return (
-    <button disabled={running} onClick={onClick}>
-      {children}
-    </button>
-  );
+  return <button onClick={onClick}>{children}</button>;
 }

@@ -13,4 +13,11 @@ module.exports = {
   },
   plugins: ["@typescript-eslint"],
   root: true,
+  rules: {
+    // I only disabled these so that we wouldn't see later rules
+    // show up in earlier files... Don't copy these disables! 😉
+    "@typescript-eslint/await-thenable": "off",
+    "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+  },
 };

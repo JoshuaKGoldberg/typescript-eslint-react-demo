@@ -1,3 +1,5 @@
+/* eslint-enable @typescript-eslint/no-floating-promises */
+
 import { useState } from "react";
 
 interface NoFloatingPromisesProps {
@@ -13,7 +15,7 @@ export function NoFloatingPromises({
 
   const onClick = async () => {
     setRunning(true);
-    action();
+    await action();
     setRunning(false);
   };
 

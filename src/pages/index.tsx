@@ -7,15 +7,17 @@ import { NoMisusedPromises } from "../components/NoMisusedPromises";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  const [callCount, setCallCount] = useState(0);
   const [customColor, setCustomColor] = useState<string>();
 
-  function exampleActionSync() {
+  function exampleAction() {
     const color = `rgb(${[
       Math.round(Math.random() * 255),
       Math.round(Math.random() * 255),
       Math.round(Math.random() * 255),
     ].join(", ")})`;
 
+    setCallCount(callCount + 1);
     setCustomColor(color);
 
     return color;
@@ -23,18 +25,19 @@ export default function Home() {
 
   async function exampleActionAsync() {
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    exampleActionSync();
+    exampleAction();
   }
 
   async function exampleActionAsyncRisky() {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    const color = exampleActionSync();
+    const color = exampleAction();
 
-    if (Math.random() > 0.5) {
+    if (callCount > 2 && Math.random() > 0.5) {
       throw new Error(`Gotcha: ${color}!`);
     }
   }
+
   return (
     <>
       <Head>
@@ -52,7 +55,7 @@ export default function Home() {
           <p aria-live="assertive">Custom color: {customColor ?? "(none)"}</p>
           <ol>
             <li>
-              <AwaitThenable action={exampleActionSync}>
+              <AwaitThenable action={exampleAction}>
                 Violate <code>await-thenable</code>
               </AwaitThenable>
             </li>
@@ -72,6 +75,13 @@ export default function Home() {
               </FixedPromises>
             </li>
           </ol>
+          <a
+            href="https://github.com/JoshuaKGoldberg/typescript-eslint-react-demo"
+            rel="noreferrer"
+            target="_blank"
+          >
+            View Source on GitHub ↗️
+          </a>
         </div>
       </main>
     </>
