@@ -1,5 +1,3 @@
-/* eslint:enable @typescript-eslint/no-misused-promises */
-
 import { useState } from "react";
 
 interface NoMisusedPromisesProps {

@@ -1,5 +1,3 @@
-/* eslint-enable @typescript-eslint/no-floating-promises */
-
 import { useState } from "react";
 
 interface NoFloatingPromisesProps {
