@@ -3,6 +3,7 @@
 > Demo showing TypeScript-ESLint rules with React. ✨
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app --typescript`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+See it on: [typescript-eslint-react-demo.vercel.app](https://typescript-eslint-react-demo.vercel.app).
 
 ## Getting Started
 
@@ -20,9 +21,8 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 
 To see all lint complaints:
 
-```bash
-yarn lint
-```
+1. Delete the `rules` object in `.eslintrc.cjs`
+2. `yarn lint`
 
 ## Learn More
 
