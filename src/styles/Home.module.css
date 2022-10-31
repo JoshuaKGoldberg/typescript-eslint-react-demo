@@ -1,25 +1,33 @@
-.container {
-  padding: 0 2rem;
+.main {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0;
 }
 
-.main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
+.contents {
+  background: white;
+  box-shadow: 0 2px 10px black;
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+}
+
+.contents ol {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  gap: 0.5rem;
 }
 
-.main button,
-.main li {
+.contents,
+.contents button {
   font-size: 1.5rem;
 }
 
 .title {
-  margin: 0;
-  line-height: 1.15;
+  display: inline-block;
   font-size: 4rem;
-  text-align: center;
+  line-height: 1.15;
+  margin: 0 auto;
+  margin: 0;
 }
